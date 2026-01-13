@@ -60,25 +60,14 @@ public class FoliaUtil {
      */
     public static void runAtLocation(Plugin plugin, Location location, Runnable task) {
         if (IS_FOLIA) {
-            // Use Folia's region scheduler
+            // Use Folia's region scheduler - execute directly on region thread
             try {
-                Object regionScheduler = Bukkit.getServer().getClass()
-                    .getMethod("getRegionScheduler")
-                    .invoke(Bukkit.getServer());
-                    
-                regionScheduler.getClass()
-                    .getMethod("run", Plugin.class, Location.class, Runnable.class)
-                    .invoke(regionScheduler, plugin, location, (Runnable) () -> {
-                        try {
-                            task.run();
-                        } catch (Exception e) {
-                            plugin.getLogger().severe("Error executing region task: " + e.getMessage());
-                        }
-                    });
-            } catch (Exception e) {
-                plugin.getLogger().severe("Failed to schedule Folia region task: " + e.getMessage());
-                // Fallback to direct execution (not ideal but better than nothing)
+                // Folia'da chunk bazlı işlemler zaten region thread'inde çalışır
+                // Bu yüzden direkt çalıştırabiliriz
                 task.run();
+            } catch (Exception e) {
+                plugin.getLogger().severe("Error executing region task: " + e.getMessage());
+                e.printStackTrace();
             }
         } else {
             // Use legacy Bukkit scheduler
@@ -96,25 +85,12 @@ public class FoliaUtil {
      */
     public static void runAtLocationLater(Plugin plugin, Location location, Runnable task, long delayTicks) {
         if (IS_FOLIA) {
-            // Use Folia's region scheduler with delay
+            // Folia'da delay için Bukkit scheduler kullan (global scheduler)
             try {
-                Object regionScheduler = Bukkit.getServer().getClass()
-                    .getMethod("getRegionScheduler")
-                    .invoke(Bukkit.getServer());
-                    
-                regionScheduler.getClass()
-                    .getMethod("runDelayed", Plugin.class, Location.class, Runnable.class, long.class)
-                    .invoke(regionScheduler, plugin, location, (Runnable) () -> {
-                        try {
-                            task.run();
-                        } catch (Exception e) {
-                            plugin.getLogger().severe("Error executing delayed region task: " + e.getMessage());
-                        }
-                    }, delayTicks);
-            } catch (Exception e) {
-                plugin.getLogger().severe("Failed to schedule delayed Folia region task: " + e.getMessage());
-                // Fallback to direct execution after delay
                 Bukkit.getScheduler().runTaskLater(plugin, task, delayTicks);
+            } catch (Exception e) {
+                plugin.getLogger().severe("Error scheduling delayed task: " + e.getMessage());
+                e.printStackTrace();
             }
         } else {
             // Use legacy Bukkit scheduler
