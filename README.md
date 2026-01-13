@@ -298,7 +298,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👨‍💻 Author
 
-Created by **osturuk**  
+Created by **msncakma**  
 For SMP servers fighting against seed-based cheating
 
 ---
