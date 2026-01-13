@@ -71,23 +71,16 @@ public class ChunkListener implements Listener {
                                    " (new: " + event.isNewChunk() + ")");
         }
         
-        // Process the chunk using Folia-compatible scheduling
-        scheduleChunkProcessing(chunk);
-    }
-    
-    /**
-     * Schedule chunk processing using Folia's region scheduler
-     * This ensures thread-safe operation in Folia's multi-threaded environment
-     */
-    private void scheduleChunkProcessing(Chunk chunk) {
+        // Process the chunk directly
+        // In Folia, chunk load events already run on the correct region thread
         int delayTicks = config.getProcessingDelayTicks();
         
         if (delayTicks > 0) {
-            // Schedule with delay
+            // Schedule with delay using Bukkit scheduler
             FoliaUtil.runForChunkLater(plugin, chunk, () -> processChunk(chunk), delayTicks);
         } else {
-            // Process immediately (but still scheduled to ensure thread safety)
-            FoliaUtil.runForChunk(plugin, chunk, () -> processChunk(chunk));
+            // Process immediately - we're already on the region thread in Folia
+            processChunk(chunk);
         }
     }
     

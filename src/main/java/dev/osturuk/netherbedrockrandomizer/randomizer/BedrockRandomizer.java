@@ -88,6 +88,10 @@ public class BedrockRandomizer {
         int minY = protectedLayers;
         int maxY = protectedLayers + randomizeLayers - 1;
         
+        if (config.isDebug()) {
+            plugin.getLogger().info(String.format("Bottom layers: Y=%d to Y=%d", minY, maxY));
+        }
+        
         // Process each layer
         for (int y = minY; y <= maxY; y++) {
             blocksChanged += processLayer(chunk, y, chunkSeed);
@@ -109,8 +113,14 @@ public class BedrockRandomizer {
         }
         
         // Calculate Y range (from nether ceiling at Y=127)
-        int maxY = 127 - protectedLayers - 1;
-        int minY = maxY - randomizeLayers + 1;
+        // If protected=1, randomize=4: should be Y=123,124,125,126
+        int minY = 127 - protectedLayers - randomizeLayers + 1;
+        int maxY = 127 - protectedLayers;
+        
+        if (config.isDebug()) {
+            plugin.getLogger().info(String.format("Top layers: Y=%d to Y=%d (protected=%d, randomize=%d)", 
+                minY, maxY, protectedLayers, randomizeLayers));
+        }
         
         // Process each layer
         for (int y = minY; y <= maxY; y++) {
