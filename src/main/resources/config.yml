@@ -1,0 +1,68 @@
+# NetherBedrockRandomizer Configuration
+# High-performance bedrock randomizer for Folia servers
+# Prevents seed-based cheating by randomizing nether bedrock patterns
+
+settings:
+  # Enable/disable the plugin
+  enabled: true
+  
+  # Worlds where bedrock randomization is active
+  # Usually just the nether world
+  worlds:
+    - world_nether
+  
+  # Bedrock density (0.0-1.0)
+  # 0.9 = 90% bedrock blocks, 0.7 = 70% bedrock blocks
+  # Vanilla has approximately 85% bedrock in randomized layers
+  bedrock-density: 0.85
+  
+  # Number of bedrock layers to keep at bottom (Y=0 is always protected)
+  # 1 = Only Y=0 is protected (Y=1-4 will be randomized)
+  protected-bottom-layers: 1
+  
+  # Number of bedrock layers to keep at top (Y=127 is always protected in nether)
+  # 1 = Only Y=127 is protected (Y=123-126 will be randomized)
+  protected-top-layers: 1
+  
+  # Number of layers to randomize from bottom (excluding protected layer)
+  # 4 = Randomize Y=1, Y=2, Y=3, Y=4
+  randomize-bottom-layers: 4
+  
+  # Number of layers to randomize from top (excluding protected layer)
+  # 4 = Randomize Y=123, Y=124, Y=125, Y=126
+  randomize-top-layers: 4
+  
+  # Custom seed for randomization algorithm
+  # Change this to get different random patterns
+  # Must be unique per server for security
+  custom-seed: "NetherBedrockRandomizer-2026-CHANGE-THIS"
+  
+  # Debug mode - logs detailed information (only for troubleshooting)
+  debug: false
+
+performance:
+  # Batch size for block updates (higher = faster but more memory)
+  # Recommended: 256-512 for optimal performance
+  batch-size: 256
+  
+  # Only process newly generated chunks (recommended: true)
+  # If false, will also process already-generated chunks
+  only-new-chunks: true
+  
+  # Delay in ticks before processing chunk (0 = instant)
+  # Use 1-2 if you experience lag spikes (1 tick = 50ms)
+  processing-delay-ticks: 0
+
+messages:
+  prefix: "&8[&6NBR&8]&r"
+  reload-success: "&aConfiguration reloaded successfully!"
+  reload-error: "&cFailed to reload configuration. Check console for errors."
+  plugin-disabled: "&cPlugin is currently disabled in config.yml"
+  plugin-enabled: "&aPlugin is enabled and running"
+  no-permission: "&cYou don't have permission to use this command."
+  
+info:
+  version: "&7Version: &f${project.version}"
+  author: "&7Author: &fosturuk"
+  folia-compatible: "&7Folia Compatible: &aYes"
+  performance: "&7Performance: &aOptimized for high-load servers"

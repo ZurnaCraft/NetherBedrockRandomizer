@@ -1,0 +1,28 @@
+name: NetherBedrockRandomizer
+version: '${project.version}'
+main: dev.osturuk.netherbedrockrandomizer.NetherBedrockRandomizer
+api-version: '1.21'
+author: osturuk
+description: High-performance bedrock randomizer for Folia servers to prevent seed-based cheating
+website: https://github.com/osturuk
+
+# Folia-specific
+folia-supported: true
+
+commands:
+  nbr:
+    description: NetherBedrockRandomizer main command
+    usage: /nbr <reload|info|stats>
+    permission: netherbedrockrandomizer.admin
+    aliases: [netherbedrockrandomizer, bedrockrandomizer]
+
+permissions:
+  netherbedrockrandomizer.admin:
+    description: Access to all NBR commands
+    default: op
+  netherbedrockrandomizer.reload:
+    description: Reload plugin configuration
+    default: op
+  netherbedrockrandomizer.info:
+    description: View plugin information
+    default: op
