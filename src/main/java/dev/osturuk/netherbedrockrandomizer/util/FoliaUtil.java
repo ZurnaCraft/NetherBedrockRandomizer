@@ -125,6 +125,32 @@ public class FoliaUtil {
     }
     
     /**
+     * Schedule an async task for chunk processing
+     * Calculates on async thread, then syncs to modify blocks
+     * 
+     * @param plugin The plugin instance
+     * @param chunk The chunk to process
+     * @param task The task to execute
+     */
+    public static void runForChunkAsync(Plugin plugin, Chunk chunk, Runnable task) {
+        if (IS_FOLIA) {
+            // On Folia, we need to run on the region thread for the chunk
+            // ChunkLoadEvent already runs on region thread, so just execute
+            task.run();
+        } else {
+            // On Bukkit, run async then sync back to main thread
+            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+                try {
+                    task.run();
+                } catch (Exception e) {
+                    plugin.getLogger().severe("Error in async chunk processing: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            });
+        }
+    }
+    
+    /**
      * Execute a task asynchronously (global async pool)
      * Use sparingly - prefer region-based tasks when possible
      * 

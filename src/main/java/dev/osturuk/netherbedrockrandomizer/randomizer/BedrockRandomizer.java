@@ -186,13 +186,20 @@ public class BedrockRandomizer {
      * @return true if this position should be bedrock
      */
     private boolean shouldPlaceBedrock(long seed, double density) {
-        // Use a simple linear congruential generator for speed
-        // This is much faster than SecureRandom or Random
-        seed = (seed * 0x5DEECE66DL + 0xBL) & ((1L << 48) - 1);
-        int value = (int) (seed >>> 16);
+        // Use XorShift for better randomization
+        // Mix the seed better to avoid patterns
+        seed ^= (seed << 21);
+        seed ^= (seed >>> 35);
+        seed ^= (seed << 4);
         
-        // Convert to 0.0-1.0 range
-        double random = (value & 0x7FFFFFFF) / (double) Integer.MAX_VALUE;
+        // Additional mixing for better distribution
+        long hash = seed * 0x27d4eb2d;
+        hash = (hash ^ (hash >>> 15)) * 0x85ebca6b;
+        hash = (hash ^ (hash >>> 13)) * 0xc2b2ae35;
+        hash = hash ^ (hash >>> 16);
+        
+        // Convert to 0.0-1.0 range using unsigned long
+        double random = (double)(hash & 0x7FFFFFFFFFFFFFFFL) / (double)Long.MAX_VALUE;
         
         return random < density;
     }

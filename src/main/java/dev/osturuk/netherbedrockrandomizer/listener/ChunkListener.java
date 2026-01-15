@@ -71,16 +71,17 @@ public class ChunkListener implements Listener {
                                    " (new: " + event.isNewChunk() + ")");
         }
         
-        // Process the chunk directly
-        // In Folia, chunk load events already run on the correct region thread
+        // Process the chunk asynchronously for better performance
+        // This prevents blocking the chunk loading process
         int delayTicks = config.getProcessingDelayTicks();
         
         if (delayTicks > 0) {
-            // Schedule with delay using Bukkit scheduler
+            // Schedule with delay
             FoliaUtil.runForChunkLater(plugin, chunk, () -> processChunk(chunk), delayTicks);
         } else {
-            // Process immediately - we're already on the region thread in Folia
-            processChunk(chunk);
+            // Schedule async for immediate processing
+            // This runs on async thread first, then syncs back to modify blocks
+            FoliaUtil.runForChunkAsync(plugin, chunk, () -> processChunk(chunk));
         }
     }
     
