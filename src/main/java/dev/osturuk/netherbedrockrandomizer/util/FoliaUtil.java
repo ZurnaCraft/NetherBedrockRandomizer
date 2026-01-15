@@ -1,4 +1,4 @@
-package dev.osturuk.netherbedrockrandomizer.util;
+package dev.msncakma.netherbedrockrandomizer.util;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * Provides abstraction layer for region-based scheduling
  * Falls back to legacy Bukkit scheduler if Folia is not available
  * 
- * @author osturuk
+ * @author msncakma
  */
 public class FoliaUtil {
 

@@ -1,8 +1,8 @@
-package dev.osturuk.netherbedrockrandomizer.randomizer;
+package dev.msncakma.netherbedrockrandomizer.randomizer;
 
-import dev.osturuk.netherbedrockrandomizer.NetherBedrockRandomizer;
-import dev.osturuk.netherbedrockrandomizer.config.ConfigManager;
-import dev.osturuk.netherbedrockrandomizer.util.ChunkUtil;
+import dev.msncakma.netherbedrockrandomizer.NetherBedrockRandomizer;
+import dev.msncakma.netherbedrockrandomizer.config.ConfigManager;
+import dev.msncakma.netherbedrockrandomizer.util.ChunkUtil;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Handles the actual randomization of bedrock blocks in chunks
  * Optimized for high performance and minimal memory usage
  * 
- * @author osturuk
+ * @author msncakma
  */
 public class BedrockRandomizer {
 

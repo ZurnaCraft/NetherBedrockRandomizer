@@ -1,10 +1,10 @@
 name: NetherBedrockRandomizer
 version: '${project.version}'
-main: dev.osturuk.netherbedrockrandomizer.NetherBedrockRandomizer
+main: dev.msncakma.netherbedrockrandomizer.NetherBedrockRandomizer
 api-version: '1.21'
-author: osturuk
+author: msncakma
 description: High-performance bedrock randomizer for Folia servers to prevent seed-based cheating
-website: https://github.com/osturuk
+website: https://github.com/msncakma
 
 # Folia-specific
 folia-supported: true

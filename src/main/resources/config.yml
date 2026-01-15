@@ -63,6 +63,6 @@ messages:
   
 info:
   version: "&7Version: &f${project.version}"
-  author: "&7Author: &fosturuk"
+  author: "&7Author: &fmsncakma"
   folia-compatible: "&7Folia Compatible: &aYes"
   performance: "&7Performance: &aOptimized for high-load servers"

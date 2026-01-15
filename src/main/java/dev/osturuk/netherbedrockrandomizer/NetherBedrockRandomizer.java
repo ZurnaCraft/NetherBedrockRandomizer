@@ -1,9 +1,9 @@
-package dev.osturuk.netherbedrockrandomizer;
+package dev.msncakma.netherbedrockrandomizer;
 
-import dev.osturuk.netherbedrockrandomizer.config.ConfigManager;
-import dev.osturuk.netherbedrockrandomizer.listener.ChunkListener;
-import dev.osturuk.netherbedrockrandomizer.randomizer.BedrockRandomizer;
-import dev.osturuk.netherbedrockrandomizer.util.FoliaUtil;
+import dev.msncakma.netherbedrockrandomizer.config.ConfigManager;
+import dev.msncakma.netherbedrockrandomizer.listener.ChunkListener;
+import dev.msncakma.netherbedrockrandomizer.randomizer.BedrockRandomizer;
+import dev.msncakma.netherbedrockrandomizer.util.FoliaUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,7 +13,7 @@ import java.util.logging.Level;
  * NetherBedrockRandomizer - High-performance bedrock randomizer for Folia servers
  * Prevents seed-based cheating by randomizing nether bedrock patterns
  * 
- * @author osturuk
+ * @author msncakma
  * @version 1.0.0
  */
 public final class NetherBedrockRandomizer extends JavaPlugin {

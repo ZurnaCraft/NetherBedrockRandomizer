@@ -1,10 +1,10 @@
-package dev.osturuk.netherbedrockrandomizer.listener;
+package dev.msncakma.netherbedrockrandomizer.listener;
 
-import dev.osturuk.netherbedrockrandomizer.NetherBedrockRandomizer;
-import dev.osturuk.netherbedrockrandomizer.config.ConfigManager;
-import dev.osturuk.netherbedrockrandomizer.randomizer.BedrockRandomizer;
-import dev.osturuk.netherbedrockrandomizer.util.ChunkUtil;
-import dev.osturuk.netherbedrockrandomizer.util.FoliaUtil;
+import dev.msncakma.netherbedrockrandomizer.NetherBedrockRandomizer;
+import dev.msncakma.netherbedrockrandomizer.config.ConfigManager;
+import dev.msncakma.netherbedrockrandomizer.randomizer.BedrockRandomizer;
+import dev.msncakma.netherbedrockrandomizer.util.ChunkUtil;
+import dev.msncakma.netherbedrockrandomizer.util.FoliaUtil;
 import org.bukkit.Chunk;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -16,7 +16,7 @@ import org.bukkit.event.world.ChunkLoadEvent;
  * Handles chunk loading and triggers bedrock randomization
  * Uses Folia-compatible scheduling for optimal performance
  * 
- * @author osturuk
+ * @author msncakma
  */
 public class ChunkListener implements Listener {
 

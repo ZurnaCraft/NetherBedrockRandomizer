@@ -1,6 +1,6 @@
-package dev.osturuk.netherbedrockrandomizer;
+package dev.msncakma.netherbedrockrandomizer;
 
-import dev.osturuk.netherbedrockrandomizer.config.ConfigManager;
+import dev.msncakma.netherbedrockrandomizer.config.ConfigManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,7 +13,7 @@ import java.util.List;
  * Command handler for /nbr command
  * Provides admin commands for managing the plugin
  * 
- * @author osturuk
+ * @author msncakma
  */
 public class CommandHandler implements CommandExecutor, TabCompleter {
 

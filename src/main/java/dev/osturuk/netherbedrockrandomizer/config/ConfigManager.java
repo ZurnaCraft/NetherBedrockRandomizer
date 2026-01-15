@@ -1,4 +1,4 @@
-package dev.osturuk.netherbedrockrandomizer.config;
+package dev.msncakma.netherbedrockrandomizer.config;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,7 +9,7 @@ import java.util.List;
  * Configuration manager for NetherBedrockRandomizer
  * Handles loading and accessing configuration values
  * 
- * @author osturuk
+ * @author msncakma
  */
 public class ConfigManager {
 

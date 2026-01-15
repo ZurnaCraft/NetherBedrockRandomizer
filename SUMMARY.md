@@ -3,7 +3,7 @@
 ## NetherBedrockRandomizer v1.0.0
 
 **Oluşturulma Tarihi**: 13 Ocak 2026  
-**Geliştirici**: osturuk  
+**Geliştirici**: msncakma  
 **Durum**: ✅ Tam Fonksiyonel ve Test Edilmeye Hazır
 
 ---
@@ -30,7 +30,7 @@ Folia 1.21.4-1.21.8 için yüksek performanslı Nether bedrock randomizer plugin
 NetherBedrockRandomizer/
 ├── src/
 │   ├── main/
-│   │   ├── java/dev/osturuk/netherbedrockrandomizer/
+│   │   ├── java/dev/msncakma/netherbedrockrandomizer/
 │   │   │   ├── NetherBedrockRandomizer.java    # Ana plugin class
 │   │   │   ├── CommandHandler.java              # /nbr komutları
 │   │   │   ├── config/
@@ -461,6 +461,6 @@ Sorular veya sorunlar için:
 **Proje Durumu**: ✅ **TAMAMLANDI**  
 **Versiyon**: 1.0.0  
 **Tarih**: 13 Ocak 2026  
-**Developer**: osturuk with AI assistance
+**Developer**: msncakma with AI assistance
 
 🎊 **BAŞARIYLA TAMAMLANDI!** 🎊

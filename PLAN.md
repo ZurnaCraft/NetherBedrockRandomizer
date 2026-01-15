@@ -50,7 +50,7 @@ Oyuncuların bedrock patternlerinden server seed'ini bulmasını engellemek ve b
 ```
 NetherBedrockRandomizer/
 ├── src/main/java/
-│   └── dev/osturuk/netherbedrockrandomizer/
+│   └── dev/msncakma/netherbedrockrandomizer/
 │       ├── NetherBedrockRandomizer.java (Main class)
 │       ├── listener/
 │       │   └── ChunkListener.java (Chunk load events)

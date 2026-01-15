@@ -1,4 +1,4 @@
-package dev.osturuk.netherbedrockrandomizer.util;
+package dev.msncakma.netherbedrockrandomizer.util;
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -8,7 +8,7 @@ import org.bukkit.World;
  * Utility class for chunk-related operations
  * Provides helper methods for chunk processing and validation
  * 
- * @author osturuk
+ * @author msncakma
  */
 public class ChunkUtil {
 

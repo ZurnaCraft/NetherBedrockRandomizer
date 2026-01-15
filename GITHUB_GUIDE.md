@@ -30,14 +30,14 @@ sudo dnf install git
 
 ```bash
 # Proje klasörüne git
-cd /home/osturuk/plugins/NetherBedrockRandomizer
+cd /home/msncakma/plugins/NetherBedrockRandomizer
 
 # Git repository'yi başlat
 git init
 
 # Kullanıcı bilgilerini ayarla (ilk kez ise)
-git config user.name "osturuk"
-git config user.email "your-email@example.com"
+git config user.name "msncakma"
+git config user.email "msn.gmgm@gmail.com"
 ```
 
 ---
